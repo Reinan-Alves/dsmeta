@@ -4,8 +4,6 @@
   padding: 30px 10px;
 }
 
-
-
 #sales {
   padding: 40px 10px;
 }
@@ -69,8 +67,6 @@
   display: flex;
   justify-content: center;
 }
-
-
 
 .show576 {
   display: none;
