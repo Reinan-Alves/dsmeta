@@ -8,8 +8,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 @Entity
 @Table(name="tb_sales")
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
+@Builder
 public class Sale {
 	
 	@Id
