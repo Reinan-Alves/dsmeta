@@ -2,7 +2,7 @@ import { toast } from 'react-toastify';
 import axios from "axios";
 import icon from '../../assets/img/notification-icon.svg';
 import { BASE_URL } from "../../utils/request";
-import './styles.css';
+import './style.css';
 
 type Props = {
     saleId: number;
