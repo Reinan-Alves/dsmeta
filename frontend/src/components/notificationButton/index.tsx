@@ -21,7 +21,7 @@ return (
             <img src={icon} alt="Notificar" />
         </div>
     
-);
+)
 }
 
 export default NotificationButton;
