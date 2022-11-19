@@ -6,7 +6,6 @@ import axios from 'axios';
 import { BASE_URL } from '../../utils/request';
 import { Sale } from '../../models/sale';
 import NotificationButton from '../NotificationButton';
-import React from 'react';
 
 function SalesCard() {
 
