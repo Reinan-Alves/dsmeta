@@ -6,6 +6,7 @@ import axios from 'axios';
 import { BASE_URL } from '../../utils/request';
 import { Sale } from '../../models/sale';
 import NotificationButton from '../NotificationButton';
+import React from 'react';
 
 function SalesCard() {
 
@@ -33,7 +34,7 @@ function SalesCard() {
     return (
         <>
             <div className="dsmeta-card">
-                <h2 className="dsmeta-sales-title">VENDAS</h2>
+                <h2 className="dsmeta-sales-title">Vendas</h2>
                 <div>
                     <div className="dsmeta-form-control-container">
                         <DatePicker
@@ -83,7 +84,7 @@ function SalesCard() {
                                             <td>R$ {sale.amount.toFixed(2)}</td>
                                             <td>
                                                 <div className="dsmeta-red-btn-container">
-                                                    <NotificationButton saleId={sale.id} />
+                                                    <NotificationButton saleId={sale.id}/>
                                                 </div>
                                             </td>
                                         </tr>
