@@ -13,7 +13,7 @@ function Header() {
                         <a href="https://www.instagram.com/devsuperior.ig">@devsuperior.ig</a>
                     </p>
                     <p>
-                        Aluno 
+                        Aluno
                         <a href="linkedin.com/in/reinan-alves-3a364821a">@ReinanSantos</a>
                     </p>
                 </div>
