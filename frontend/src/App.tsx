@@ -2,6 +2,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Header from "./components/Header";
 import SalesCard from "./components/SalesCard";
+import Top3 from './components/Top3';
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
         <section id="sales">
           <div className="dsmeta-container">
             <SalesCard/>
+            <Top3 />
           </div>
         </section>
       </main>

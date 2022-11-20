@@ -1,54 +1,36 @@
-
 import axios from "axios";
 import { useEffect, useState } from "react";
-import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { BASE_URL } from "../../utils/request";
-import NotificationButton from '../NotificationButton';
-import './index.css';
+import './style.css';
 import { Sale } from "../../models/sale"
 
-function SalesCard() {
+function Top3() {
 
-    const min = new Date(new Date().setDate(new Date().getDate() - 365));
-    const max = new Date();
-
-    const [minDate, setminDate] = useState(min);
-    const [maxDate, setMaxDate] = useState(max);
-
-    const [sales, setSales] = useState<Sale[]>([]);
+    const [top3, setTop3] = useState<Sale[]>([]);
 
     useEffect(() => {
 
-        const dmin = minDate.toISOString().slice(0, 10);
-        const dmax = maxDate.toISOString().slice(0, 10);
-
-        axios.get(`${BASE_URL}/sales?minDate=${dmin}&maxDate=${dmax}`)
+        axios.get(`${BASE_URL}/sales`)
             .then(response => {
-                setSales(response.data.content)
+                setTop3((response.data.content).slice(0, 3))
+               
             });
-    }, [minDate, maxDate]);
+    }, []);
+
+    
+
 
     return (
 
         <div className="dsmeta-card">
-            <h2 className="dsmeta-sales-title">Vendas</h2>
+            <h2 className="dsmeta-sales-title-top">Top 3 de vendas</h2>
             <div>
                 <div className="dsmeta-form-control-container">
-                    <DatePicker
-                        selected={minDate}
-                        onChange={(date: Date) => setminDate(date)}
-                        className="dsmeta-form-control"
-                        dateFormat="dd/MM/yyyy"
-                    />
+
                 </div>
                 <div className="dsmeta-form-control-container">
-                    <DatePicker
-                        selected={maxDate}
-                        onChange={(date: Date) => setMaxDate(date)}
-                        className="dsmeta-form-control"
-                        dateFormat="dd/MM/yyyy"
-                    />
+
                 </div>
             </div>
 
@@ -62,11 +44,11 @@ function SalesCard() {
                             <th className="show992">Visitas</th>
                             <th className="show992">Vendas</th>
                             <th>Total</th>
-                            <th>Notificar</th>
+                            <th>Classificação</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {sales.map(sale => {
+                        {top3.map((sale, index) => {
                             return (
                                 <tr key={sale.id}>
                                     <td className="show992">{sale.id}</td>
@@ -75,11 +57,7 @@ function SalesCard() {
                                     <td className="show992">{sale.visited}</td>
                                     <td className="show992">{sale.deals}</td>
                                     <td>R$ {sale.amount.toFixed(2)}</td>
-                                    <td>
-                                        <div className="dsmeta-red-btn-container">
-                                            <NotificationButton saleId={sale.id} />
-                                        </div>
-                                    </td>
+                                    <td>{index + 1}ª</td>
                                 </tr>
                             )
                         })
@@ -97,4 +75,4 @@ function SalesCard() {
 
 }
 
-export default SalesCard;
+export default Top3;
