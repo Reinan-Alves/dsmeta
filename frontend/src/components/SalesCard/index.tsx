@@ -7,6 +7,7 @@ import { BASE_URL } from "../../utils/request";
 import NotificationButton from '../NotificationButton';
 import './index.css';
 import { Sale } from "../../models/sale"
+import { Link } from "react-router-dom";
 
 function SalesCard() {
 
@@ -32,7 +33,10 @@ function SalesCard() {
     return (
 
         <div className="dsmeta-card">
-            <h2 className="dsmeta-sales-title">Vendas</h2>
+
+            <button className="dsmeta-sales-title"><h4>Vendas por data</h4></button>
+            <button className="dsmeta-sales-title"> <Link to="/top3"><h6>Filtrar o top 3</h6></Link></button>
+
             <div>
                 <div className="dsmeta-form-control-container">
                     <DatePicker
@@ -50,6 +54,9 @@ function SalesCard() {
                         dateFormat="dd/MM/yyyy"
                     />
                 </div>
+            </div>
+            <div className="dsmeta-form-control-container">
+
             </div>
 
             <div>

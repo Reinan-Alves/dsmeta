@@ -4,6 +4,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { BASE_URL } from "../../utils/request";
 import './style.css';
 import { Sale } from "../../models/sale"
+import { Link } from "react-router-dom";
 
 function Top3() {
 
@@ -24,7 +25,8 @@ function Top3() {
     return (
 
         <div className="dsmeta-card">
-            <h2 className="dsmeta-sales-title-top">Top 3 de vendas</h2>
+             <button className="dsmeta-sales-title"><Link to="/"><h6>Vendas por data</h6></Link></button>
+            <button className="dsmeta-sales-title"> <h4>Filtrar o top 3</h4></button>
             <div>
                 <div className="dsmeta-form-control-container">
 
